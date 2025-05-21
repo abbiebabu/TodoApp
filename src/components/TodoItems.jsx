@@ -9,7 +9,7 @@ export const TodoItems = ({text}) => {
         <img className="h-10 w-10" src={tick} alt="" />
         <p className="text-slate-200 text-[18px]">{text}</p>
       </div>
-      <img src={del} alt="" className="w-6 cursor-pointer mx-2" />
+      <img src={del} alt="" className="w-6 cursor-pointer mr-4" />
     </div>
   );
 };
