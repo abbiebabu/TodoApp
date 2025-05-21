@@ -15,8 +15,10 @@ function App() {
         </div>
         {/* todo list */}
         <div className="my-16 mx-70 bg-[#4F4E4E] rounded-3xl py-6">
-          <TodoItems />
-          <TodoItems />
+          <TodoItems text={"Make a good looking TODO"} />
+          <TodoItems text={"Make a working TODO"} />
+          <TodoItems text={"Push TODO to Github"} />
+        
         </div>
       </div>
     </>
