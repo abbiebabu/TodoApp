@@ -1,15 +1,40 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { TodoItems } from "./components/todoItems";
 import "./App.css";
 
 function App() {
+  const [todoList, setTodoList] = useState([]);
+
+  const inputRef = useRef();
+
+  const add = () => {
+    const inputText = inputRef.current.value.trim();
+    if (inputText === "") {
+      return null;
+    }
+    const newTodo = {
+      id: Date.now,
+      text: inputText,
+      isComplete: false,
+    };
+    setTodoList((prev) => [...prev, newTodo]);
+    inputRef.current.value = "";
+  };
+
   return (
     <>
       <div>
         <h1 className="poiret-one text-center text-8xl pt-20">TO-DO</h1>
         <div className="flex mt-20 gap-3 justify-center-safe">
-          <input className="bg-white w-200 h-15 rounded-2xl text-gray-950 px-5" type="text" />
-          <button className="bg-black inter px-5 py-2 cursor-pointer rounded-xl">
+          <input
+            className="bg-white w-200 h-15 rounded-2xl text-gray-950 px-5"
+            type="text"
+            ref={inputRef}
+          />
+          <button
+            onClick={add}
+            className="bg-black inter px-5 py-2 cursor-pointer rounded-xl"
+          >
             Add Task
           </button>
         </div>
@@ -20,7 +45,6 @@ function App() {
           <TodoItems text={"Make a good looking TODO"} />
           <TodoItems text={"Make a working TODO"} />
           <TodoItems text={"Push TODO to Github"} />
-        
         </div>
       </div>
     </>
