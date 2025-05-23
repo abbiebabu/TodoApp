@@ -42,9 +42,9 @@ function App() {
         <div className="my-16 mx-70 bg-[#4F4E4E] rounded-3xl py-6">
           <h1 className="text-4xl px-10 mt-1 poiret-one">Your List</h1>
 
-          <TodoItems text={"Make a good looking TODO"} />
-          <TodoItems text={"Make a working TODO"} />
-          <TodoItems text={"Push TODO to Github"} />
+          {todoList.map((item, index) => {
+            return <TodoItems key={index} text={item.text} />;
+          })}
         </div>
       </div>
     </>
