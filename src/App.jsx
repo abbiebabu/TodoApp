@@ -13,7 +13,7 @@ function App() {
       return null;
     }
     const newTodo = {
-      id: Date.now,
+      id: Date.now(),
       text: inputText,
       isComplete: false,
     };
@@ -23,8 +23,8 @@ function App() {
 
   const deleteTodo = (id) => {
     setTodoList((prevTodo) => {
-      return prevTodo.filter((todo) => todo.id != id);
-    });
+      return prevTodo.filter((todo) => todo.id != id)
+    })
   };
 
   return (
