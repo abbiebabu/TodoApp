@@ -19,11 +19,12 @@ function App() {
     };
     setTodoList((prev) => [...prev, newTodo]);
     inputRef.current.value = "";
-    const deleteTodo=(id)=>{
-      setTodoList((prevTodo)=>{
-       return  prevTodo.filter((todo)=> todo.id !=id)
-       })
-    }
+  };
+
+  const deleteTodo = (id) => {
+    setTodoList((prevTodo) => {
+      return prevTodo.filter((todo) => todo.id != id);
+    });
   };
 
   return (
@@ -48,10 +49,16 @@ function App() {
           <h1 className="text-4xl px-10 mt-1 poiret-one">Your List</h1>
 
           {todoList.map((item, index) => {
-            return <TodoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo}/>;
+            return (
+              <TodoItems
+                key={index}
+                text={item.text}
+                id={item.id}
+                isComplete={item.isComplete}
+                deleteTodo={deleteTodo}
+              />
+            );
           })}
-
-          
         </div>
       </div>
     </>

@@ -10,7 +10,9 @@ export const TodoItems = ({ text, id, isComplete, deleteTodo }) => {
         <p className="text-slate-200 text-[18px]">{text}</p>
       </div>
       <img
-        onClick={()=>{deleteTodo(id)}}
+        onClick={() => {
+          deleteTodo(id);
+        }}
         src={del}
         alt=""
         className="w-6 cursor-pointer mr-4"
