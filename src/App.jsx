@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TodoItems } from "./components/todoItems";
 import "./App.css";
 
@@ -23,10 +23,27 @@ function App() {
 
   const deleteTodo = (id) => {
     setTodoList((prevTodo) => {
-      return prevTodo.filter((todo) => todo.id != id)
-    })
+      return prevTodo.filter((todo) => todo.id != id);
+    });
   };
 
+  const toggle = (id) => {
+    setTodoList((prevTodo) => {
+      return prevTodo.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            isComplete: !todo.isComplete,
+          };
+        } else {
+          return todo;
+        }
+      });
+    });
+  };
+  useEffect(() => {
+    console.log(todoList);
+  }, [todoList]);
   return (
     <>
       <div>
@@ -56,6 +73,7 @@ function App() {
                 id={item.id}
                 isComplete={item.isComplete}
                 deleteTodo={deleteTodo}
+                toggle={toggle}
               />
             );
           })}
