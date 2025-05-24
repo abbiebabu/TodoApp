@@ -1,3 +1,9 @@
+This is a Basic Todo App I made using React , I used 3 hooks in this project which are:
+1. useRef 
+2. useState 
+3. useEffect 
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
