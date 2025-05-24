@@ -1,4 +1,7 @@
 {
+  "homepage": "https://abbiebabu.github.io/TodoApp",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "name": "todoapp",
   "private": true,
   "version": "0.0.0",
